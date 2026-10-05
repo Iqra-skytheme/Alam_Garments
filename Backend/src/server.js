@@ -1,0 +1,23 @@
+import 'dotenv/config';
+import express from 'express';
+import cors from 'cors';
+import helmet from 'helmet';
+import rateLimit from 'express-rate-limit';
+import bcrypt from 'bcryptjs';
+import { connectDB } from './config/db.js';
+import User from './models/User.js';
+import ShopSettings from './models/ShopSettings.js';
+import api from './routes/api.js';
+const app=express();
+app.use(helmet()); app.use(cors({origin:process.env.CLIENT_ORIGIN||'http://localhost:5173'})); app.use(express.json({limit:'2mb'}));
+app.use('/api/auth/login',rateLimit({windowMs:15*60*1000,max:30}));
+app.get('/api/health',(req,res)=>res.json({ok:true,service:'HisabKitab API'}));
+app.use('/api',api);
+app.use((err,req,res,next)=>{console.error(err); if(err?.code===11000)return res.status(409).json({message:'A record with this unique value already exists.'}); res.status(500).json({message:err.message||'Internal server error'});});
+const port=process.env.PORT||5000;
+await connectDB();
+let owner=await User.findOne({role:'owner'});
+if(!owner){owner=await User.create({ownerName:process.env.DEFAULT_OWNER_NAME||'Muhammad Ali',shopName:process.env.DEFAULT_SHOP_NAME||'Alam Garments',phone:process.env.DEFAULT_OWNER_PHONE||'+92 0300-1234567',email:process.env.DEFAULT_OWNER_EMAIL||'',pinHash:await bcrypt.hash(process.env.DEFAULT_OWNER_PIN||'1234',12),role:'owner'});}
+let settings=await ShopSettings.findOne({userId:owner._id});
+if(!settings) await ShopSettings.create({userId:owner._id,name:owner.shopName,owner:owner.ownerName,phone:owner.phone,email:owner.email,currency:'Rs.',category:'Garments & Clothing',creditLimit:50000,whatsappReceipts:true,smsReminders:true,autoBackup:true});
+app.listen(port,()=>console.log(`HisabKitab API running on http://localhost:${port}`));

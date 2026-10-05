@@ -1,0 +1,3 @@
+import mongoose from 'mongoose';
+const schema=new mongoose.Schema({userId:{type:mongoose.Schema.Types.ObjectId,ref:'User',required:true,index:true},name:{type:String,required:true,trim:true},phone:{type:String,required:true},email:{type:String,default:''},address:{type:String,default:''},openingBalance:{type:Number,default:0},currentBalance:{type:Number,default:0},totalPurchases:{type:Number,default:0},totalPaid:{type:Number,default:0},status:{type:String,enum:['Active','Inactive'],default:'Active'},notes:{type:String,default:''},createdAt:{type:String,default:''}},{timestamps:true});
+export default mongoose.model('Supplier',schema);

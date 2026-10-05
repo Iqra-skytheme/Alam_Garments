@@ -1,0 +1,135 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="hk-bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b" />
+      <stop offset="40%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#090d16" />
+    </linearGradient>
+
+    <!-- Squircle Border Gradient -->
+    <linearGradient id="hk-border-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.9" />
+      <stop offset="50%" stop-color="#2563eb" stop-opacity="0.4" />
+      <stop offset="100%" stop-color="#10b981" stop-opacity="0.7" />
+    </linearGradient>
+
+    <!-- Left Book Leaf / Ledger Gradient -->
+    <linearGradient id="hk-blue-leaf" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="35%" stop-color="#2563eb" />
+      <stop offset="100%" stop-color="#1d4ed8" />
+    </linearGradient>
+
+    <!-- Right Financial Growth / Checkmark Leaf Gradient -->
+    <linearGradient id="hk-green-leaf" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#059669" />
+      <stop offset="30%" stop-color="#10b981" />
+      <stop offset="80%" stop-color="#34d399" />
+      <stop offset="100%" stop-color="#a7f3d0" />
+    </linearGradient>
+
+    <!-- Golden Bookmark Ribbon -->
+    <linearGradient id="hk-gold-ribbon" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#fef08a" />
+      <stop offset="30%" stop-color="#f59e0b" />
+      <stop offset="100%" stop-color="#b45309" />
+    </linearGradient>
+
+    <!-- Drop Shadow Filters -->
+    <filter id="hk-shadow" x="-10%" y="-10%" width="120%" height="120%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="16" stdDeviation="20" flood-color="#000000" flood-opacity="0.45" />
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#2563eb" flood-opacity="0.35" />
+    </filter>
+
+    <filter id="hk-check-shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#064e3b" flood-opacity="0.6" />
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#000000" flood-opacity="0.3" />
+    </filter>
+
+    <filter id="hk-glow-filter" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="10" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Base Rounded Squircle with Subtle Rim -->
+  <rect x="20" y="20" width="472" height="472" rx="108" ry="108" fill="url(#hk-bg-grad)" filter="url(#hk-shadow)" />
+  <rect x="20" y="20" width="472" height="472" rx="108" ry="108" fill="none" stroke="url(#hk-border-grad)" stroke-width="4" />
+
+  <!-- Ambient Internal Glows -->
+  <circle cx="160" cy="150" r="160" fill="#2563eb" opacity="0.22" filter="blur(48px)" />
+  <circle cx="360" cy="330" r="150" fill="#10b981" opacity="0.18" filter="blur(48px)" />
+
+  <!-- Central Khata Book & Upward Growth Checkmark Group -->
+  <g id="hk-emblem" transform="translate(0, -6)">
+
+    <!-- BACK / DEPTH COVER OF BOOK -->
+    <path d="M256 122 C210 112 144 126 98 138 C86 142 78 153 78 166 L78 356 C78 372 92 384 108 381 C152 372 216 360 256 376 C296 360 360 372 404 381 C420 384 434 372 434 356 L434 166 C434 153 426 142 414 138 C368 126 302 112 256 122 Z" 
+          fill="#0b1120" 
+          opacity="0.8" />
+
+    <!-- LEFT PAGE: The Ledger Book (Hisab) -->
+    <path d="M252 134 C212 124 154 136 112 148 C100 152 92 163 92 176 L92 352 C92 366 104 378 118 375 C158 366 214 355 252 368 Z" 
+          fill="url(#hk-blue-leaf)" />
+
+    <!-- Left Page Top Luster / Highlight Curve -->
+    <path d="M250 137 C212 127 156 138 114 150 C104 153 96 162 94 172 L94 246 C124 228 184 220 250 236 Z" 
+          fill="white" 
+          opacity="0.18" />
+
+    <!-- Ledger Entry Lines (Accounting rows) -->
+    <rect x="126" y="196" width="94" height="14" rx="7" fill="#ffffff" opacity="0.95" />
+    <rect x="126" y="232" width="76" height="13" rx="6.5" fill="#bae6fd" opacity="0.9" />
+    <rect x="126" y="266" width="84" height="13" rx="6.5" fill="#bae6fd" opacity="0.9" />
+    <rect x="126" y="300" width="56" height="13" rx="6.5" fill="#7dd3fc" opacity="0.8" />
+
+    <!-- Ledger Balance Indicator (Currency Dot & Pill) -->
+    <circle cx="134" cy="340" r="7" fill="#38bdf8" />
+    <rect x="152" y="335" width="48" height="10" rx="5" fill="#bae6fd" opacity="0.75" />
+
+    <!-- RIGHT PAGE: Depth leaf under the checkmark -->
+    <path d="M260 134 C300 124 358 136 400 148 C412 152 420 163 420 176 L420 352 C420 366 408 378 394 375 C354 366 298 355 260 368 Z" 
+          fill="#064e3b" 
+          opacity="0.45" />
+
+    <!-- Right Page Ledger Accent Lines (Shadowed) -->
+    <rect x="296" y="196" width="86" height="13" rx="6.5" fill="#047857" opacity="0.5" />
+    <rect x="314" y="232" width="74" height="13" rx="6.5" fill="#047857" opacity="0.45" />
+
+    <!-- CENTER SPINE & BOOKMARK RIBBON (Kitab Bookmark) -->
+    <!-- Center Spine Crease -->
+    <path d="M256 126 L256 380" stroke="#090d16" stroke-width="10" stroke-linecap="round" />
+    <path d="M256 130 L256 376" stroke="#38bdf8" stroke-width="3" stroke-linecap="round" opacity="0.7" />
+
+    <!-- Golden Bookmark Ribbon Hanging Down -->
+    <path d="M244 128 L268 128 L268 226 L256 212 L244 226 Z" 
+          fill="url(#hk-gold-ribbon)" 
+          filter="url(#hk-check-shadow)" />
+    
+    <!-- Ribbon Golden Gloss -->
+    <path d="M246 128 L256 128 L256 212 L246 223 Z" fill="white" opacity="0.3" />
+
+    <!-- DYNAMIC UPWARD CHECKMARK / FINANCIAL SURGE (Jama & Udhaar Settlement) -->
+    <!-- The bold checkmark sweeps boldly across the right book page -->
+    <path d="M228 296 C218 284 219 266 232 254 C244 243 262 245 273 257 L298 286 L376 182 C386 168 406 166 418 176 C431 187 433 207 421 221 L320 354 C313 363 302 368 290 367 C279 366 269 359 263 349 L228 296 Z"
+          fill="url(#hk-green-leaf)"
+          filter="url(#hk-check-shadow)" />
+
+    <!-- Checkmark Inner Edge Highlight -->
+    <path d="M236 288 L266 332 C271 340 279 345 288 346 L386 216" 
+          fill="none" 
+          stroke="#ffffff" 
+          stroke-width="5" 
+          stroke-linecap="round" 
+          opacity="0.45" />
+
+    <!-- Radiance Flare on Checkmark Apex -->
+    <circle cx="414" cy="184" r="16" fill="#a7f3d0" opacity="0.5" filter="blur(6px)" />
+    <circle cx="414" cy="184" r="7" fill="#ffffff" />
+
+    <!-- Floating Barakah / Bar Chart Micro-Dots (Fintech polish) -->
+    <circle cx="400" cy="132" r="5" fill="#38bdf8" opacity="0.9" />
+    <circle cx="426" cy="146" r="3.5" fill="#facc15" opacity="0.9" />
+  </g>
+</svg>

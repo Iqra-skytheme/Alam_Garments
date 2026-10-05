@@ -1,0 +1,3 @@
+import mongoose from 'mongoose';
+const schema=new mongoose.Schema({userId:{type:mongoose.Schema.Types.ObjectId,ref:'User',required:true,index:true},name:{type:String,required:true,trim:true},phone:{type:String,required:true},email:{type:String,default:''},address:{type:String,default:''},totalUdhaar:{type:Number,default:0},totalJama:{type:Number,default:0},balance:{type:Number,default:0},status:{type:String,enum:['Active','Clear'],default:'Clear'},lastTransactionDate:{type:String,default:''}},{timestamps:true});
+schema.index({userId:1,name:1}); export default mongoose.model('Customer',schema);

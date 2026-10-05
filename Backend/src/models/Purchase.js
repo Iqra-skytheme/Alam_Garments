@@ -1,0 +1,3 @@
+import mongoose from 'mongoose';
+const schema=new mongoose.Schema({userId:{type:mongoose.Schema.Types.ObjectId,ref:'User',required:true},supplierId:{type:mongoose.Schema.Types.ObjectId,ref:'Supplier',required:true},transactionId:{type:mongoose.Schema.Types.ObjectId,ref:'SupplierTransaction',required:true},item:{type:String,required:true},quantity:{type:Number,required:true},purchasePrice:{type:Number,required:true},totalAmount:{type:Number,required:true},amountPaid:{type:Number,default:0},remainingAmount:{type:Number,default:0},date:{type:String,required:true}},{timestamps:true});
+export default mongoose.model('Purchase',schema);

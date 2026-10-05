@@ -1,0 +1,3 @@
+import mongoose from 'mongoose';
+const schema=new mongoose.Schema({userId:{type:mongoose.Schema.Types.ObjectId,ref:'User',required:true,index:true},customerId:{type:mongoose.Schema.Types.ObjectId,ref:'Customer',required:true,index:true},customerName:String,type:{type:String,enum:['Udhaar','Jama'],required:true},amount:{type:Number,required:true,min:0},date:{type:String,required:true},description:{type:String,default:''},paymentMethod:{type:String,default:'Cash'},billNumber:{type:String,required:true}},{timestamps:true});
+schema.index({userId:1,billNumber:1},{unique:true}); export default mongoose.model('CustomerTransaction',schema);

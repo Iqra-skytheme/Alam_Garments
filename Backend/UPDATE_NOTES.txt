@@ -1,0 +1,21 @@
+HisabKitab Backend - Supplier Balance Fix
+
+This backend version fixes supplier financial calculations using the supplier ledger.
+
+Key fix:
+- Opening Balance is treated as brought-forward payable.
+- Purchases increase supplier payable by the unpaid portion.
+- Purchase payments and supplier payments reduce payable.
+- Purchase returns reduce payable.
+- Existing suppliers are recalculated from their ledger when suppliers/bootstrap/dashboard/reports are loaded.
+- Existing records with an openingBalance but stale currentBalance are automatically corrected.
+- Supplier payment validation now checks the recalculated real outstanding balance.
+
+Example:
+Opening Balance: Rs. 90,000
+Purchase: Rs. 6,600 paid in full
+Outstanding: Rs. 90,000
+Payment: Rs. 4,500
+New Outstanding: Rs. 85,500
+
+No frontend files are included in this ZIP.

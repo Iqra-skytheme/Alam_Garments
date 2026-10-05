@@ -1,0 +1,12 @@
+HISABKITAB BACKEND
+
+1. Open this folder in VS Code / Antigravity.
+2. Copy .env.example to .env.
+3. Set MONGODB_URI and JWT_SECRET in .env.
+4. Run:
+   npm install
+5. Start:
+   npm run dev
+
+Backend URL:
+http://localhost:5000
